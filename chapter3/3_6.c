@@ -15,33 +15,21 @@ void reverse(char s[]){
 
 }
 
-char to_char(int d){
-    if(d<10){
-        return '0' + d;
-    }else{
-        return 'a' + (d%10);
-    }
-
-}
-
-void itob(int n, char s[], int b){
-    assert(b<=16);
-    unsigned int un;
-    int sign = 0;
+void itoa(int n, char s[], int min){
     int i;
+    int sign = 0;
     if (n < 0){
         sign = 1;
-        n += 1;
-        un = -n;
-        un += 1;
-    }else{
-        un = n;
+        n = -n;
     }
 
     i = 0; 
     do{
-        s[i++] = to_char(un%b);
-    }while((un /= b) > 0);
+        s[i++] = '0' + (n%10);
+    }while((n /= 10) > 0);
+
+    for(; i<min; i++)
+        s[i] = '0';
 
     if(sign)
         s[i++] = '-';
@@ -54,8 +42,8 @@ void itob(int n, char s[], int b){
 /* working with chars for being more manageable (only 8bits) */
 int main(){
     char str[10];
-    int n = 1018;
-    itob(n, str, 16);
+    int n = -118;
+    itoa(n, str, 6);
     printf("%s\n", str);
 
     return 0;

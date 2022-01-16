@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int countbits(int x){
+int countbits(unsigned int x){
     int c=0;
-    for(; x>0; x=x>>1) c++;
+    for(; x>0; x>>=1) c++;
     return c;
 }
 
