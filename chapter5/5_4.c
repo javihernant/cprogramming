@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-int my_strcat(char *s, char *t);
+int my_strend(char *s, char *t);
 
 int main(){
     char s[100] = "this string contain this string";
     char *t = "this string";
     int rc;
-    rc = my_strcat(s,t);
+    rc = my_strend(s,t);
     if (rc == 0){
         printf("Not found :(\n");
     }else{
@@ -15,7 +15,7 @@ int main(){
     return 0;
 }
 
-int my_strcat(char *s, char *t)
+int my_strend(char *s, char *t)
 {
     char *s_cpy;
     char *t_cpy;

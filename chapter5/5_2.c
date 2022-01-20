@@ -7,8 +7,13 @@ int getfloat(double *np);
 
 int main(){
     double a = -1.0;
-    getfloat(&a);
-    printf("%f\n",a);
+    int rc;
+    rc = getfloat(&a);
+    if(rc == 0){
+        printf("getfloat: input is not a number\n");
+    }else{
+        printf("%f\n",a);
+    }
     return 0;
 }
 
